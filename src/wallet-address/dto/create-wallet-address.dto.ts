@@ -1,15 +1,11 @@
 import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
 
 export class CreateWalletAddressDto {
-  @IsNumber()
-  @IsNotEmpty()
-  userId: number;
-
   @IsString()
   @IsNotEmpty()
   address: string;
 
-  @IsString()
+  @IsNumber()
   @IsNotEmpty()
-  type: string;
+  user_id: number;
 }

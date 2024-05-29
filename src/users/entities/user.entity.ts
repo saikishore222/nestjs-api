@@ -1,16 +1,17 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn ,CreateDateColumn,OneToMany} from 'typeorm';
+import { WalletAddress } from 'src/wallet-address/entities/wallet-address.entity';
 
 @Entity()
 export class Users {
   @PrimaryGeneratedColumn()
-  id: number;
+   id: number;
 
-  @Column()
-  name: string;
+  @Column({unique:true})
+  username: string;
 
   @Column({ unique: true })
   email: string;
 
-  @Column({unique:true})
-  username: string;
+  @Column()
+  password: string;
 }

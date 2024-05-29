@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { Users } from 'src/users/entities/user.entity';
 
 @Entity()
@@ -7,11 +7,9 @@ export class WalletAddress {
   id: number;
 
   @Column()
-  userId: number;
-
-  @Column()
   address: string;
 
+  @ManyToOne(() => Users, (user) => user.id)
   @Column()
-  type: string;
+  user_id: number;
 }
